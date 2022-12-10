@@ -25,7 +25,7 @@ echo "[Node Exporter] : creating a system unit..."
     echo 'ExecStart=/usr/bin/node_exporter'; \
     echo '[Install]'; \
     echo 'WantedBy=multi-user.target'; \
-} | tee /etc/systemd/system/node_exporter.service; \
+} | tee /etc/systemd/system/node_exporter.service;
 
 echo "[Node Exporter] : reload daemon..."
 sudo systemctl daemon-reload
@@ -46,22 +46,24 @@ sudo usermod -aG docker vagrant
 
 ## Install minikube
 
+echo "[Minikube] : Installing minikube"
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube
 mkdir -p /usr/local/bin/
 install minikube /usr/local/bin/
+rm minikube
 
-echo "[K3d] : Installing kubectl"
+echo "[Minikube] : Installing kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 mv kubectl /usr/local/bin/
 
-echo "[K3d] : add aliases"
+echo "[Minikube] : add aliases"
 echo "alias k='kubectl'" >> /etc/profile.d/00-aliases.sh
 echo "alias kg='kubectl get'" >> /etc/profile.d/00-aliases.sh
 echo "alias kd='kubectl describe'" >> /etc/profile.d/00-aliases.sh
 
-echo "[K3d] : add autofill..."
+echo "[Minikube] : add autofill..."
 echo "source <(kubectl completion bash)" >> /etc/profile.d/00-aliases.sh
 
 ## Clone k8s yaml code examples from slurm

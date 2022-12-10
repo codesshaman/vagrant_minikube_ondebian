@@ -1,6 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+VIRTUAL_HOST_PRIVATE_IP_ADDRESS = "192.168.58.100"
+CPU_CORES_COUNT = "8"
+MEMORY_COUNT = "8192"
+#MASTER_NODES = "1"
+#WORKER_NODES = "3"
+
 # create machines config
 Vagrant.configure(2) do |config|
     config.vm.box = "bento/debian-11"
@@ -14,13 +20,16 @@ Vagrant.configure(2) do |config|
 
   # master node config
     config.vm.define 'debian' do |debian|
+        debian.vm.network :private_network, 
+        ip: VIRTUAL_HOST_PRIVATE_IP_ADDRESS
         debian.vm.hostname = "debian-minikube"
         debian.vm.provision "shell",
         privileged: true, path: "setup.sh"
+#        args: [MASTER_NODES, WORKER_NODES]
         debian.vm.provider "virtualbox" do |v|
             v.name = "debian_minikube"
-            v.memory = 4096
-            v.cpus = 4
+            v.memory = MEMORY_COUNT
+            v.cpus = CPU_CORES_COUNT
         end
     end
 

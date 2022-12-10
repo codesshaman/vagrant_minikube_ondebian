@@ -4,7 +4,7 @@ Your need install vagrant and virtualbox for up this configuration.
 
 ### Step 1
 
-Download box bento/debian-11 for virtualbox from [vagrantup](https://app.vagrantup.com/bento/boxes/debian-11 "vagrantup").
+Download box bento/debian-11 for virtualbox from [vagrantup](https://app.vagrantup.com/boxes/search "vagrantup").
 
 ### Step 2
 
@@ -23,3 +23,9 @@ Copy box and go inside the repository folder:
 Install configuration:
 
 ``vagrant up --provider=virtualbox``
+
+### Step 5
+
+Connect:
+
+``ssh vagrant@192.168.58.100``
