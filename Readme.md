@@ -29,3 +29,9 @@ Install configuration:
 Connect:
 
 ``ssh vagrant@192.168.58.100``
+
+### Step 6
+
+Start minikube:
+
+``minikube start``
