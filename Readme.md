@@ -8,15 +8,15 @@ Download box bento/debian-11 for virtualbox from [vagrantup](https://app.vagrant
 
 ### Step 2
 
-Clonr this repository: git clone https://github.com/codesshaman/vagrant_k3d_ondebian.git
+Clonr this repository: git clone https://github.com/codesshaman/vagrant_minikube_ondebian.git
 
 ### Step 3
 
 Copy box and go inside the repository folder:
 
-``cp ~/Downloads/a22d1053-8311-450b-a740-6e3017c087f8 path_to/vagrant_k3d_ondebian/debian``
+``cp ~/Downloads/a22d1053-8311-450b-a740-6e3017c087f8 path_to/vagrant_minikube_ondebian/debian``
 
-``cd vagrant_k3d_ondebian``
+``cd vagrant_minikube_ondebian``
 
 ### Step 4
 
