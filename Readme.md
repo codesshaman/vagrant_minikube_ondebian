@@ -20,17 +20,23 @@ Copy box and go inside the repository folder:
 
 ### Step 4
 
+Inicialize configuration:
+
+``vagrant box add bento/debian-11 debian``
+
+### Step 5
+
 Install configuration:
 
 ``vagrant up --provider=virtualbox``
 
-### Step 5
+### Step 6
 
 Connect:
 
 ``ssh vagrant@192.168.58.100``
 
-### Step 6
+### Step 7
 
 Start minikube:
 
