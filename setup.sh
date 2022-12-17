@@ -9,7 +9,7 @@ echo "[Node Exporter] : successfully downloaded..."
 echo "[Node Exporter] : installation..."
 tar xvfz node_exporter-*.linux-amd64.tar.gz
 cd node_exporter-*.*-amd64
-sudo cp node_exporter /usr/bin
+sudo mv node_exporter /usr/bin/
 
 echo "[Node Exporter] : creating a user..."
 sudo useradd -r -M -s /bin/false node_exporter
@@ -68,8 +68,6 @@ echo "source <(kubectl completion bash)" >> /etc/profile.d/00-aliases.sh
 
 ## Clone k8s yaml code examples from slurm
 
-echo "[Git] : install git..."
-rm -rf /home/vagrant/node_exporter-*
 echo "[Git] : clone learning repository..."
 su - vagrant -c 'git clone https://github.com/codesshaman/slurm_k8s_tasks.git /home/vagrant/slurm'
 
