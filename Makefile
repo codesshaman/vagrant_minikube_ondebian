@@ -25,6 +25,7 @@ help:
 	@echo -e "$(WARN_COLOR)- make connect			: Connect to VM with ssh"
 	@echo -e "$(WARN_COLOR)- make down			: Stopping configuration"
 	@echo -e "$(WARN_COLOR)- make ps			: View configuration"
+	@echo -e "$(WARN_COLOR)- make path			: Change path to vagrantboxes"
 	@echo -e "$(WARN_COLOR)- make re			: Restart configuration"
 	@echo -e "$(WARN_COLOR)- make clean			: Destroy configuration"
 	@echo -e "$(WARN_COLOR)- make  fclean			: Forced destroy all$(NO_COLOR)"
@@ -48,6 +49,12 @@ re:	down
 ps:
 	@printf "$(BLUE)==== View configuration ${name}... ====$(NO_COLOR)\n"
 	@vagrant status
+
+path:
+	@printf "$(YELLOW)==== Change path for ${name}... ====$(NO_COLOR)\n"
+	@export VAGRANT_HOME=".vagrantboxes"
+	@mkdir .vagrantboxes
+	@printf "$(OK_COLOR)==== Pas has been changing ====$(NO_COLOR)\n"
 
 clean: down
 	@printf "$(ERROR_COLOR)==== Destroy configuration ${name}... ====$(NO_COLOR)\n"
